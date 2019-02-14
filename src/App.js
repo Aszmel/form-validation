@@ -2,6 +2,27 @@ import React, { Component } from "react";
 import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      firstName: null,
+      lastName: null,
+      email: null,
+      password: null,
+      formErrors: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: ""
+      }
+    };
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+  };
+
   render() {
     return (
       <div className="wrapper">
@@ -52,6 +73,12 @@ class App extends Component {
                 placeholder="password"
                 onChange={this.handleChange}
               />
+            </div>
+            <div className="createAccount">
+              <button type="submit" onClick={this.handleSubmit}>
+                Create Account
+              </button>
+              <small> Already Have an Account?</small>
             </div>
           </form>
         </div>
